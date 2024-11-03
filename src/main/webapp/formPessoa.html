@@ -78,38 +78,37 @@
 <body>
 <div class="form-container">
     <h2>Cadastro</h2>
-    <form th:action="@{/pessoas}" method="POST">
+    <form th:action="@{/pessoas}" th:object="${pessoas}" method="POST">
         <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" th:value="${nome}" required>
+            <input type="text" id="nome" th:field="*{nome}" required>
         </div>
         <div class="form-group">
             <label for="idade">Idade:</label>
-            <input type="number" id="idade" name="idade" th:value="${idade}" required>
+            <input type="number" id="idade" th:field="*{idade}" required>
         </div>
 
         <h3>Endereço</h3>
         <div class="form-group">
             <label for="rua">Rua:</label>
-            <input type="text" id="rua" th:field="${endereco.rua}" required>
+            <input type="text" id="rua" th:field="*{endereco.rua}" required>
         </div>
         <div class="form-group">
             <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" th:field="${endereco.cidade}" required>
+            <input type="text" id="cidade" th:field="*{endereco.cidade}" required>
         </div>
         <div class="form-group">
             <label for="estado">Estado:</label>
-            <input type="text" id="estado" th:field="${endereco.estado}" required>
+            <input type="text" id="estado" th:field="*{endereco.estado}" required>
         </div>
         <div class="form-group">
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" th:field="${endereco.cep}" required>
+            <input type="text" id="cep" th:field="*{endereco.cep}" required>
         </div>
 
         <input type="submit" value="Salvar">
     </form>
-</div>
-    </form>
+
 </div>
 </body>
 </html>

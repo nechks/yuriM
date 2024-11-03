@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Listar Pessoas</title>
@@ -14,6 +14,10 @@
         <th>ID</th>
         <th>Nome</th>
         <th>Idade</th>
+        <th>Rua</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>CEP</th>
     </tr>
     </thead>
     <tbody>
@@ -21,9 +25,18 @@
         <td th:text="${pessoa.id}">ID</td>
         <td th:text="${pessoa.nome}">Nome</td>
         <td th:text="${pessoa.idade}">Idade</td>
+        <td th:text="${pessoa.endereco != null ? pessoa.endereco.rua : 'N/A'}">Rua</td>
+        <td th:text="${pessoa.endereco != null ? pessoa.endereco.cidade : 'N/A'}">Cidade</td>
+        <td th:text="${pessoa.endereco != null ? pessoa.endereco.estado : 'N/A'}">Estado</td>
+        <td th:text="${pessoa.endereco != null ? pessoa.endereco.cep : 'N/A'}">CEP</td>
     </tr>
     </tbody>
 </table>
+
+<!-- Formulário para limpar o banco de dados e a lista em memória -->
+<form th:action="@{/limparDados}" method="post">
+    <button type="submit">Limpar Dados</button>
+</form>
 
 </body>
 </html>
